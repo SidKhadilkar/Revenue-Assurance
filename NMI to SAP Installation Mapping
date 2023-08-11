@@ -1,0 +1,7 @@
+select distinct installation, left(nmi,10) as nmi from CUSTOMER.TBL_CIA_ENT_TRUTH_CUSTOMER
+where moveoutdate != '00000000'
+
+-- use the code below to enter the NMIs you want to retrieve installation for--
+
+
+--and left(nmi,10) = '6001099650'
