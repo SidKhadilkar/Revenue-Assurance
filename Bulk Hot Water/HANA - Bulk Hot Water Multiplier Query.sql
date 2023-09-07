@@ -8,6 +8,3 @@ LEFT JOIN COMMERCIAL.EVER V
 ON EAST.ANLAGE = V.ANLAGE
 WHERE THGVER = 'WTR-LTR'
 AND ET.BIS = '99991231'
-
-select top 5  *
-from commercial.ever
