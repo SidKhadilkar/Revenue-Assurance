@@ -1,3 +1,5 @@
+** Use this query to extract meter co-ordinator charges from NMI Details ** 
+
 Select a.trxn_id, a.net_id, a.date_received, a.transaction_type, a.transaction_date, a.transaction_status, a.payment_status, a.meter_id, a.net_transaction_amount, a.gst_amount, a.line_description, b.service_date, b.retail_serv_order_ref
 from nbv.net_transaction a, nbv.transaction_detail_excl b
 where a.trxn_id = b.trxn_id
