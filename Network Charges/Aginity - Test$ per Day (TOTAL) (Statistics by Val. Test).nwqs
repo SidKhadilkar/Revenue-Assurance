@@ -1,3 +1,4 @@
+** This query extract total transaction and dollar amount for all validataion tests for rolling 12 months **
 <QuerySet>
   <Query IsView="False" IsSP="False">
     <SQL>select count(a.trxn_id), sum(a.net_transaction_amount), b.val_library_test_id from nbv.net_transaction a, nbv.transaction_validation_result b
