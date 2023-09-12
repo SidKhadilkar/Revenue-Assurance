@@ -18,5 +18,5 @@ from
 )
 where
 	addr_rank = 1 --only want the most recent
-	and bp in ('0101019048')
+	and bp = ('0101019048')
 	
