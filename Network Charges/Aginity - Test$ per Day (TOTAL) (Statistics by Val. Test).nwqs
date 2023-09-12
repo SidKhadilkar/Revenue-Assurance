@@ -1,0 +1,13 @@
+<QuerySet>
+  <Query IsView="False" IsSP="False">
+    <SQL>select count(a.trxn_id), sum(a.net_transaction_amount), b.val_library_test_id from nbv.net_transaction a, nbv.transaction_validation_result b
+where a.trxn_id = b.trxn_id
+and a.date_received &gt;= DATEADD(month,DATEDIFF(month,'19000101',convert_timezone('Australia/Melbourne', GETDATE()))-12,'19000101')
+and a.reconciliation_confidence &lt; '70'
+--and a.net_transaction_amount &amp;gt; 400
+--and a.retailer_class = 'ELSIS'
+and b.status_code &lt;&gt; 'IVLD'
+group by  b.val_library_test_id</SQL>
+    <Name>Tab 1</Name>
+  </Query>
+</QuerySet>
