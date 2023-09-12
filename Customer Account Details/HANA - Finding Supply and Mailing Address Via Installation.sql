@@ -50,7 +50,7 @@ left join
 	on locn.adrnr = supp.addrnumber
 
 where
-	cont.anlage in ('3002491265')
+	cont.anlage = ('3002491265')
 	and cont.einzdat != '00000000' --exclude reversed contracts, because reversing a contract deletes the ANLAGE in IS-U
 
 order by
