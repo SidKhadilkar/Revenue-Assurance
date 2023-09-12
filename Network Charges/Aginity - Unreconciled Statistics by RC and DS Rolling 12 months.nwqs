@@ -1,0 +1,20 @@
+<QuerySet>
+  <Query IsView="False" IsSP="False">
+    <SQL>SELECT 
+
+convert_timezone('Australia/Melbourne', GETDATE()) as extract_date, sum(nt.net_transaction_amount) Total_Excl, 
+sum(nt.gst_amount) GST, sum(nt.net_transaction_amount + nt.gst_amount) Total_Inclusive, count(*) Transactions, nt.net_id as network,
+nt.reconciliation_confidence as RC, nt.dispute_score as DS
+
+FROM nbv.net_transaction nt
+
+JOIN nbv.transaction_pkg tp ON nt.trxn_id = tp.trxn_id
+JOIN nbv.pkg p ON p.pkg_id = tp.pkg_id
+
+WHERE p.ap_payment_due &gt;= DATEADD(month,DATEDIFF(month,'19000101',convert_timezone('Australia/Melbourne', GETDATE()))-12,'19000101')
+AND nt.reconciliation_confidence &lt; 70
+
+GROUP BY RC, DS, network</SQL>
+    <Name>Tab 1</Name>
+  </Query>
+</QuerySet>
