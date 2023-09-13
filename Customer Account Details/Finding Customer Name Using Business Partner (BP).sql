@@ -10,4 +10,4 @@ select
 	  		 ON				CUST.GPART = BUT000.PARTNER
 	  		 
 	  		 where customer.gpart
-	  		 in (
+	  		 in (903292801)
