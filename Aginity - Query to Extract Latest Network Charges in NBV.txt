@@ -1,0 +1,18 @@
+SELECT * FROM (SELECT  meter_id,
+utility_type,
+quantity,
+quantity_UOM,
+transaction_type,
+net_transaction_amount,
+gst_amount,
+billing_period_start,
+billing_period_end,
+ROW_NUMBER()OVER(PARTITION BY meter_id ORDER BY billing_period_end DESC) AS RANK
+FROM net_transaction
+WHERE meter_id in 
+('5601381497','5601381462','5601381085'
+)
+AND quantity_UOM = 'MJ'
+AND transaction_status <> 'REVR'
+AND adjustment_indicator <> 'C')AS TAB1
+WHERE RANK=1
